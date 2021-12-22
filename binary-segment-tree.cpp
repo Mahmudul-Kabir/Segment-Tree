@@ -12,14 +12,14 @@ struct bin_str{
     ll fun(ll a,ll b,ll c){
         return fun(a,fun(b,c));
     }
-    void make(ll a,ll b,ll node){
+    void build(ll a,ll b,ll node){
         if(a == b){
             str[node] = id[a];
             return;
         }
         ll left = node * 2, mid = a + (b - a)/2;
-        make(a,mid,left);
-        make(mid+1,b,left+1);
+        build(a,mid,left);
+        build(mid+1,b,left+1);
         str[node] = fun(str[left],str[left + 1]);
         return;
     }
@@ -31,7 +31,7 @@ struct bin_str{
     }
     bin_str(ll x,vector<ll > &v) : id(v){
         str.assign(x * 4,def);
-        make(0,x-1,1);
+        build(0,x-1,1);
         return;
     }
 };
