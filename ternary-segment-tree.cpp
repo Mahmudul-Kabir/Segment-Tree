@@ -3,9 +3,8 @@
 using namespace std;
 using ll = long long;
 
-const ll mod = 1000000007;
 
-struct tenstr{
+struct tern_str{
     vector<ll> str,&id;
     ll default = 0;
     ll fun(ll a,ll b){
@@ -47,7 +46,7 @@ struct tenstr{
         if(m2 == b) m2--;
         return fun(que(a,m1,l,r,left+1),que(m1+1,m2,l,r,left+2),que(m2+1,b,l,r,left+3)); 
     }
-    tenstr(ll x,vector<ll > &v) : id(v){
+    tern_str(ll x,vector<ll > &v) : id(v){
         str.assign(x * 4,default);
         make(0,x-1,0);
         return;
