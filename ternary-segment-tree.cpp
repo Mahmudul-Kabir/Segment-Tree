@@ -6,9 +6,9 @@ using ll = long long;
 
 struct tern_str{
     vector<ll> str,&id;
-    ll default = 0;
+    ll def = 0;                                                 // default value
     ll fun(ll a,ll b){
-        return a + b; 
+        return a + b;                                           // change this function according to the query types.
     }
     ll fun(ll a,ll b,ll c){
         return fun(a,fun(b,c));
@@ -35,7 +35,7 @@ struct tern_str{
 
     }
     ll que(ll a,ll b,ll l,ll r,ll node){
-        if(b < l || a > r) return default;
+        if(b < l || a > r) return def;
         if(a >= l && b <= r){
             return str[node];
         }
@@ -47,7 +47,7 @@ struct tern_str{
         return fun(que(a,m1,l,r,left+1),que(m1+1,m2,l,r,left+2),que(m2+1,b,l,r,left+3)); 
     }
     tern_str(ll x,vector<ll > &v) : id(v){
-        str.assign(x * 4,default);
+        str.assign(x * 4,def);
         make(0,x-1,0);
         return;
     }
