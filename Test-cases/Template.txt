@@ -1,4 +1,0 @@
-n // number of elements
-q // number of query
-a1, a2, a3, a4.......an  // array elements
-x1 y1 // queries
